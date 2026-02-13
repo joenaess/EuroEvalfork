@@ -298,6 +298,10 @@ def load_raw_data(
                 path=file_extension, data_files=data_files, cache_dir=cache_dir
             )
 
+    # If the dataset config has a column mapping, rename the columns
+    if dataset_config.column_mapping is not None:
+        dataset = dataset.rename_columns(dataset_config.column_mapping)
+
     assert isinstance(dataset, DatasetDict)
     return DatasetDict(  # pyrefly: ignore[no-matching-overload]
         {

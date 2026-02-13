@@ -173,6 +173,7 @@ class DatasetConfig:
         name: str | None = None,
         pretty_name: str | None = None,
         source: str | dict[str, str] | None = None,
+        column_mapping: dict[str, str] | None = None,
         prompt_prefix: str | None = None,
         prompt_template: str | None = None,
         instruction_prompt: str | None = None,
@@ -220,6 +221,9 @@ class DatasetConfig:
                 dictionary with keys "train", "val" and "test" mapping to local CSV file
                 paths. Can be None if and only if the dataset config resides directly in
                 the Hugging Face dataset repo. Defaults to None.
+            column_mapping (optional):
+                A mapping from the column names in the dataset to the column names
+                expected by EuroEval. Defaults to None.
             prompt_prefix (optional):
                 The prefix to use in the few-shot prompt. Defaults to the template for
                 the task and language.
@@ -379,6 +383,7 @@ class DatasetConfig:
         self._name = name
         self._pretty_name = pretty_name
         self._source = source
+        self.column_mapping = column_mapping
         self.task = task
         self.languages = languages
 
