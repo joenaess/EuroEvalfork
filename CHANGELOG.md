@@ -24,8 +24,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- Fixed the Swedish Skolprov dataset, by adding the missing 'e' option.
-
 ## [v16.13.0] - 2026-02-06
 
 ### Added

@@ -173,11 +173,17 @@ else:
     SKOLPROV_CONFIG = DatasetConfig(
         name="skolprov",
         pretty_name="Skolprov",
-        source="Ekgren/swedish_skolprov",
-        task=KNOW,
+        task=RC,
         languages=[SWEDISH],
-        labels=["a", "b", "c", "d", "e"],
-        prompt_template="Fråga: {text}\nSvar: {label}",
+        source="EuroEval/skolprov",
+        prompt_template=(
+            "{context}\n\n{question}\n\nSvarsalternativ:\na. {option_a}\nb. {option_b}\n"
+            "c. {option_c}\nd. {option_d}\ne. {option_e}"
+        ),
+        instruction_prompt=(
+            "Du kommer att få en fråga om en text. Läs texten och svara på frågan genom att "
+            "välja det rätta alternativet."
+        ),
         unofficial=True,
     )
 

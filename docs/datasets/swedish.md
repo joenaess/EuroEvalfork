@@ -632,6 +632,11 @@ läkare), dentist test (kunskapsprov tandläkare), audiologist test (kunskapspro
 audionom), pharmacist test (kunskapsprov apotekare), and mathematics and physics test
 (matematik och fysikprovet).
 
+The dataset is not available for public use, but you can request access to it by
+contacting the authors of the paper. Alternatively, you can use the script
+`src/scripts/create_skolprov.py` to recreate the dataset from the [original
+data](https://huggingface.co/datasets/Ekgren/swedish_skolprov).
+
 The original dataset consists of 545 samples, which we filter down to 474 samples. We
 use a 32 / 32 / 410 split for training, validation and testing, respectively.
 
@@ -672,6 +677,12 @@ When evaluating generative models, we use the following setup (see the
 
   ```text
   Fråga: {text}
+  Svarsalternativ:
+  a. {option_a}
+  b. {option_b}
+  c. {option_c}
+  d. {option_d}
+  e. {option_e}
   Svar: {label}
   ```
 
@@ -684,6 +695,7 @@ When evaluating generative models, we use the following setup (see the
   b. {option_b}
   c. {option_c}
   d. {option_d}
+  e. {option_e}
 
   Besvara följande fråga med 'a', 'b', 'c', 'd' eller 'e', och inget annat.
   ```
